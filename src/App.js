@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect }from 'react';
+import Data from './Data/data';
+import Chart from './Components/chart';
+
+
 import './App.css';
 
-function App() {
+const App = () => {
+
+
+    // const txData = require('./Data/data.json');
+    // const response = fetch(txData);
+    // const stuff = response.json;
+    // console.log(stuff);
+ 
+
+  console.log("what the fuck");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Account Summary</h1>
+      <ul>
+        <li><Chart/></li>
+        <li><Data/></li>
+      </ul>
+
+
     </div>
-  );
+  )
 }
 
 export default App;
