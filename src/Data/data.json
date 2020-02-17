@@ -1,6 +1,6 @@
 {   "success":true,
     "trxs_count": 84,
-
+    "trxs" : {
         "transactions": [
             {
                 "CONTAINER": "bank",
@@ -3511,7 +3511,8 @@
                     "currency": "USD"
                 }
             }
-        ],
+        ]
+    },
     "accounts": {
         "account": [
             {

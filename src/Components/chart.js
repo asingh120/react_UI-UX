@@ -1,27 +1,80 @@
 import React from 'react';
 import TxData from '../Data/data.json';
-import { PieChart, Pie } from 'recharts';
+import { BarChart, Bar, CartesianGrid, XAxis, YAxis, Tooltip, Legend} from 'recharts';
+import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
+import { LineChart, Line } from 'recharts';
 
-const data = TxData.transactions;
+const balance = TxData.balances[0];
+const dailyLabels = balance.daily_labels
+const dailyValues = balance.daily_values
+const weekLabels = balance.day_of_week_labels;
+const weekValues = balance.day_of_week_average_values;
+const monthLabels = balance.month_labels;
+const monthValues = balance.month_average_values;
+const final = [];
+const weekFinal = [];
+const monthFinal = [];
 
-const amount = data.map((dataDetail, index) => {
-    return (dataDetail.amount.amount);   
-  });
+for (let i=0; i < dailyValues.length; i++) {
+  final.push(
+    {
+      date: dailyLabels[i],
+      amount: dailyValues[i]
+    }
+  ) 
+};
 
-const type =  data.map((dataDetail, index) => {
-    return (dataDetail.type);
-  });
+for (let i=0; i < monthLabels.length; i++) {
+  monthFinal.push(
+    {
+      month: monthLabels[i],
+      amount: monthValues[i]
+    }
+  )
+}
+
+for (let i=0; i < weekLabels.length; i++) {
+  weekFinal.push(
+    {
+      month: weekLabels[i],
+      amount: weekValues[i]
+    }
+  )
+}
 
 const Chart = () => { 
   return(
     <div>
-      <h3>This is a test of PieChart</h3>
-      {console.log("this is amount ", amount)}
-      {console.log("this is type " , type)}
-      <PieChart width={730} height={250}>
-        <Pie data={amount} dataKey="type" nameKey="amount" cx="50%" cy="50%" outerRadius={50} fill="#8884d8" />
-        <Pie data={type} dataKey="type" nameKey="amount" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#82ca9d" label />
-      </PieChart>
+      <h3>Account At A Glance</h3>
+        <div style={{display: 'flex', justifyContent: 'center', paddingTop: 30, paddingBottom: 30}}>
+          
+          <BarChart width={730} height={250} data={final}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="date" />
+            <YAxis dataKey="amount"/>
+            <Tooltip />
+            <Bar dataKey="date" fill="#8884d8" />
+            <Bar dataKey="amount" fill="#5aad11" />
+          </BarChart>
+
+          <RadarChart outerRadius={90} width={730} height={250} data={weekFinal}>
+            <PolarGrid />
+            <PolarAngleAxis dataKey="day" />
+            <PolarRadiusAxis angle={30} domain={[0, 150]} />
+            <Radar name="amount" dataKey="amount" stroke="#19bcf7" fill="#19bcf7" fillOpacity={0.6} />
+          </RadarChart>
+
+          <LineChart width={730} height={250} data={monthFinal}
+            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="month" />
+            <YAxis dataKey="amount"/>
+            <Tooltip />
+            <Line type="monotone" dataKey="month" stroke="#8884d8" />
+            <Line type="monotone" dataKey="amount" stroke="#82ca9d" />
+          </LineChart>
+        </div>
+        
     </div>
   )
 }

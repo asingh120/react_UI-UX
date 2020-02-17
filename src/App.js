@@ -1,8 +1,6 @@
 import React from 'react';
-import Data from './Data/data';
 import Chart from './Components/chart';
-
-
+import StickyHeadTable from './Components/table';
 import './App.css';
 
 const App = () => {
@@ -11,7 +9,7 @@ const App = () => {
       <h1>Account Summary</h1>
       <ul>
         <li><Chart/></li>
-        <li><Data/></li>
+        <li><StickyHeadTable/></li>
       </ul>
     </div>
   )
