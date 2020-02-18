@@ -1,13 +1,15 @@
 import React from "react";
 import Chart from "./Components/Chart";
 import StickyHeadTable from "./Components/Table";
-import "./App.css";
 import AccountInfo from "./Components/AccountInfo";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import "./App.css";
 
 const App = () => {
   return (
     <div className="App">
-      <h1>Account Summary</h1>
+      <Header />
       <div>
         <p>
           <AccountInfo />
@@ -16,6 +18,7 @@ const App = () => {
         <p>
           <StickyHeadTable />
         </p>
+        <Footer />
       </div>
     </div>
   );

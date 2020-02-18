@@ -32,7 +32,8 @@ const useStyles = makeStyles({
   graphWrapper: {
     width: "100%",
     justifyContent: "center",
-    display: "flex"
+    display: "flex",
+    margin: "auto"
   }
 });
 
@@ -75,45 +76,59 @@ const Chart = () => {
   const renderGraph = () => {
     if (graph === "line") {
       return (
-        <LineChart
-          width={730}
-          height={250}
-          data={monthFinal}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="month" />
-          <YAxis dataKey="amount" />
-          <Tooltip />
-          <Line type="monotone" dataKey="month" stroke="#8884d8" />
-          <Line type="monotone" dataKey="amount" stroke="#82ca9d" />
-        </LineChart>
+        <div>
+          <LineChart
+            width={730}
+            height={250}
+            data={monthFinal}
+            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="month" />
+            <YAxis dataKey="amount" />
+            <Tooltip />
+            <Line type="monotone" dataKey="month" stroke="#8884d8" />
+            <Line type="monotone" dataKey="amount" stroke="#82ca9d" />
+          </LineChart>
+          <div>Average Monthly Balance</div>
+        </div>
       );
     } else if (graph === "radar") {
       return (
-        <RadarChart outerRadius={90} width={730} height={250} data={weekFinal}>
-          <PolarGrid />
-          <PolarAngleAxis dataKey="day" />
-          <PolarRadiusAxis angle={30} domain={[0, 150]} />
-          <Radar
-            name="day"
-            dataKey="amount"
-            stroke="#19bcf7"
-            fill="#19bcf7"
-            fillOpacity={0.6}
-          />
-        </RadarChart>
+        <div>
+          <RadarChart
+            outerRadius={90}
+            width={730}
+            height={250}
+            data={weekFinal}
+          >
+            <PolarGrid />
+            <PolarAngleAxis dataKey="day" />
+            <PolarRadiusAxis angle={30} domain={[0, 150]} />
+            <Radar
+              name="day"
+              dataKey="amount"
+              stroke="#19bcf7"
+              fill="#19bcf7"
+              fillOpacity={0.6}
+            />
+          </RadarChart>
+          <div>Average Daily Balance</div>
+        </div>
       );
     } else {
       return (
-        <BarChart width={730} height={250} data={final}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" />
-          <YAxis dataKey="amount" />
-          <Tooltip />
-          <Bar dataKey="date" fill="#8884d8" />
-          <Bar dataKey="amount" fill="#5aad11" />
-        </BarChart>
+        <div>
+          <BarChart width={730} height={250} data={final}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="date" />
+            <YAxis dataKey="amount" />
+            <Tooltip />
+            <Bar dataKey="date" fill="#8884d8" />
+            <Bar dataKey="amount" fill="#5aad11" />
+          </BarChart>
+          <div>10 Day Account Summary</div>
+        </div>
       );
     }
   };
