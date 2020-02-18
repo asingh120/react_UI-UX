@@ -1,18 +1,24 @@
-import React from 'react';
-import Chart from './Components/chart';
-import StickyHeadTable from './Components/table';
-import './App.css';
+import React from "react";
+import Chart from "./Components/Chart";
+import StickyHeadTable from "./Components/Table";
+import "./App.css";
+import AccountInfo from "./Components/AccountInfo";
 
 const App = () => {
   return (
     <div className="App">
       <h1>Account Summary</h1>
-      <ul>
-        <li><Chart/></li>
-        <li><StickyHeadTable/></li>
-      </ul>
+      <div>
+        <p>
+          <AccountInfo />
+          <Chart />
+        </p>
+        <p>
+          <StickyHeadTable />
+        </p>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default App;
