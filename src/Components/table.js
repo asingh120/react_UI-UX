@@ -132,7 +132,7 @@ const useStyles = makeStyles({
     // maxHeight: 500
   },
   breakpoint: {
-    "@media (min-width 955px)": {
+    "@media (min-width: 955px)": {
       display: "none",
       width: "80%",
       margin: "auto"
