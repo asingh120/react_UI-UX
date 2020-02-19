@@ -1,7 +1,10 @@
 .App {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #f3f3f3;
+  background-color: #ebe8e8;
+  /* background-image: radial-gradient(black 50%, transparent 50%); */
+  /* background-image: radial-gradient(rgba(255, 0, 0, 0), rgb(27, 80, 129));
+  background-size: 20px 20px; */
 }
 
 .App-logo {

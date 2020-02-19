@@ -102,14 +102,22 @@ for (let i = 0; i < txs.length; i++) {
 
 const useStyles = makeStyles({
   root: {
-    // width: "100%",
+    width: "99%",
+    margin: "auto"
     // fontFamily: "Apercu",
   },
   container: {
-    marginRight: "200"
+    //marginRight: "200"
     // maxHeight: 500
   }
 });
+
+const styles = {
+  fontFamily: "Helvetica",
+  fontSize: 25,
+  color: "#636362",
+  fontWeight: "600"
+};
 
 const StickyHeadTable = () => {
   const classes = useStyles();
@@ -127,7 +135,7 @@ const StickyHeadTable = () => {
 
   return (
     <div className="table">
-      <h2>Transaction History</h2>
+      <h2 style={styles}>Transaction History</h2>
       <Grid>
         <Paper className={classes.root}>
           <TableContainer className={classes.container}>
@@ -138,7 +146,10 @@ const StickyHeadTable = () => {
                     <TableCell
                       key={column.id}
                       align={column.align}
-                      style={{ minWidth: column.minWidth }}
+                      style={{
+                        minWidth: column.minWidth,
+                        background: "#f5d5d0"
+                      }}
                     >
                       {column.label}
                     </TableCell>
@@ -159,7 +170,11 @@ const StickyHeadTable = () => {
                         {columns.map(column => {
                           const value = row[column.id];
                           return (
-                            <TableCell key={column.id} align={column.align}>
+                            <TableCell
+                              key={column.id}
+                              align={column.align}
+                              style={{ background: "#fcfcfc" }}
+                            >
                               {column.format && typeof value === "number"
                                 ? column.format(value)
                                 : value}

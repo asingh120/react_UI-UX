@@ -69,6 +69,13 @@ for (let i = 0; i < weekLabels.length; i++) {
   });
 }
 
+const styles = {
+  fontFamily: "Helvetica",
+  fontSize: 14,
+  color: "#636362",
+  fontWeight: "200"
+};
+
 const Chart = () => {
   const classes = useStyles();
   const [graph, setGraph] = useState("bar");
@@ -90,7 +97,7 @@ const Chart = () => {
             <Line type="monotone" dataKey="month" stroke="#8884d8" />
             <Line type="monotone" dataKey="amount" stroke="#82ca9d" />
           </LineChart>
-          <div>Average Monthly Balance</div>
+          <div style={styles}>Average Monthly Balance</div>
         </div>
       );
     } else if (graph === "radar") {
@@ -113,7 +120,7 @@ const Chart = () => {
               fillOpacity={0.6}
             />
           </RadarChart>
-          <div>Average Daily Balance</div>
+          <div style={styles}>Average Daily Balance</div>
         </div>
       );
     } else {
@@ -127,7 +134,7 @@ const Chart = () => {
             <Bar dataKey="date" fill="#8884d8" />
             <Bar dataKey="amount" fill="#5aad11" />
           </BarChart>
-          <div>10 Day Account Summary</div>
+          <div style={styles}>10 Day Account Summary</div>
         </div>
       );
     }

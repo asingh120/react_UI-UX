@@ -17,7 +17,7 @@ const headerStyles = {
   fontWeight: "bold",
   color: "#f3f3f3",
   height: 65,
-  background: "#f77c6b",
+  background: "#fc6f5b",
   fontSize: 45,
   boxShadow: "3px 3px 2px #9E9E9E",
   textShadow: "1.5px 1.5px 1.5px grey"
