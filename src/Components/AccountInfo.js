@@ -17,31 +17,34 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     justifyContent: "center",
+    flexDirection: "column",
     alignItems: "center",
     flexWrap: "wrap",
     margin: "auto",
     fontFamily: "Arial",
     color: "#3d3c3c",
-    fontWeight: "400"
+    fontWeight: "400",
+    paddingTop: 25
   },
   container: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    margin: "50px",
+    margin: "5px",
     padding: "8px"
   },
   heading: {
+    display: "flex",
     fontFamily: "sans-serif",
     fontSize: 25,
     color: "#636362",
     fontWeight: "600",
-    padding: "5px"
+    padding: "5px",
+    alignItems: "center"
   },
   innerDiv: {
     display: "flex",
     flexDirection: "column",
-
     textAlign: "left",
     padding: "5px"
   }
@@ -51,8 +54,8 @@ const AccountInfo = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
+      <div className={classes.heading}>{accountName}</div>
       <div className={classes.container}>
-        <div className={classes.heading}>{accountName}</div>
         <div className={classes.innerDiv}>
           <p>Account: {accountType}</p>
           <p>Current Balance: ${currentBalance}</p>

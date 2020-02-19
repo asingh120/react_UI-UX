@@ -8,7 +8,11 @@ import "./App.css";
 
 const divStyle = {
   display: "flex",
-  justifyContent: "space-between"
+  justifyContent: "space-between",
+  //flexDirection: "column",
+  "@media (max-width: 955px)": {
+    flexDirection: "column-reverse"
+  }
 };
 
 const App = () => {
@@ -17,8 +21,12 @@ const App = () => {
       <Header />
       <div>
         <div style={divStyle}>
-          <Chart />
-          <AccountInfo />
+          <div>
+            <Chart />
+          </div>
+          <div>
+            <AccountInfo />
+          </div>
         </div>
         <div>
           <div style={{ height: 5 }} />
