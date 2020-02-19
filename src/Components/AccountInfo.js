@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
       height: 250,
       justifyContent: "center",
       fontFamily: "Arial",
-      color: "#898b96",
+      color: "#3d3c3c",
       fontWeight: "400"
     }
   },

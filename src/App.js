@@ -13,9 +13,11 @@ const App = () => {
       <div>
         <p>
           <AccountInfo />
+          <div />
           <Chart />
         </p>
         <p>
+          <div style={{ height: 5 }} />
           <StickyHeadTable />
         </p>
         <Footer />
