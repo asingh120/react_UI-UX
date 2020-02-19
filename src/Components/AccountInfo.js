@@ -1,7 +1,7 @@
 import React from "react";
 import TransactionData from "../Data/data.json";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
+//import Paper from "@material-ui/core/Paper";
 
 const account = TransactionData.accounts.account[0];
 
@@ -16,35 +16,34 @@ const lastUpdated = account.lastUpdated;
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "center",
+    alignItems: "center",
     flexWrap: "wrap",
-    flexDirection: "row",
-    "& > *": {
-      // margin: theme.spacing(1),
-      // width: theme.spacing(200),
-      // height: theme.spacing(50)
-      margin: "auto",
-      background: "#fcfcfc",
-      width: "75%",
-      height: 250,
-      justifyContent: "center",
-      fontFamily: "Arial",
-      color: "#3d3c3c",
-      fontWeight: "400"
-    }
+    margin: "auto",
+    fontFamily: "Arial",
+    color: "#3d3c3c",
+    fontWeight: "400"
   },
   container: {
     display: "flex",
     justifyContent: "space-between",
-    flexDirection: "row",
-    marginLeft: "50px",
-    marginRight: "50px"
+    alignItems: "center",
+    margin: "50px",
+    padding: "8px"
   },
   heading: {
-    fontFamily: "Helvetica",
+    fontFamily: "sans-serif",
     fontSize: 25,
     color: "#636362",
-    fontWeight: "600"
+    fontWeight: "600",
+    padding: "5px"
+  },
+  innerDiv: {
+    display: "flex",
+    flexDirection: "column",
+
+    textAlign: "left",
+    padding: "5px"
   }
 }));
 
@@ -52,21 +51,19 @@ const AccountInfo = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Paper elevation={3}>
-        <p className={classes.heading}>Welcome back {accountName}!</p>
-        <div className={classes.container}>
-          <div>
-            <p>Account: {accountType}</p>
-            <p>Current Balance: ${currentBalance}</p>
-            <p>Available Balance: ${availableBalance}</p>
-          </div>
-          <div>
-            <p>Account Number: {accountNumber}</p>
-            <p>Account Status: {isActive}</p>
-            <p>Last Updated: {lastUpdated}</p>
-          </div>
+      <div className={classes.container}>
+        <div className={classes.heading}>{accountName}</div>
+        <div className={classes.innerDiv}>
+          <p>Account: {accountType}</p>
+          <p>Current Balance: ${currentBalance}</p>
+          <p>Available Balance: ${availableBalance}</p>
         </div>
-      </Paper>
+        <div className={classes.innerDiv}>
+          <p>Account Number: {accountNumber}</p>
+          <p>Account Status: {isActive}</p>
+          <p>Updated: {lastUpdated}</p>
+        </div>
+      </div>
     </div>
   );
 };

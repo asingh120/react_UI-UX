@@ -102,18 +102,17 @@ for (let i = 0; i < txs.length; i++) {
 
 const useStyles = makeStyles({
   root: {
-    width: "99%",
-    margin: "auto"
-    // fontFamily: "Apercu",
+    width: "100%"
   },
   container: {
+    width: "100%"
     //marginRight: "200"
     // maxHeight: 500
   }
 });
 
 const styles = {
-  fontFamily: "Helvetica",
+  fontFamily: "sans-serif",
   fontSize: 25,
   color: "#636362",
   fontWeight: "600"

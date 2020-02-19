@@ -6,20 +6,24 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import "./App.css";
 
+const divStyle = {
+  display: "flex",
+  justifyContent: "space-between"
+};
+
 const App = () => {
   return (
     <div className="App">
       <Header />
       <div>
-        <p>
-          <AccountInfo />
-          <div />
+        <div style={divStyle}>
           <Chart />
-        </p>
-        <p>
+          <AccountInfo />
+        </div>
+        <div>
           <div style={{ height: 5 }} />
           <StickyHeadTable />
-        </p>
+        </div>
         <Footer />
       </div>
     </div>

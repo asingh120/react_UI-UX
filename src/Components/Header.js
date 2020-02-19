@@ -5,65 +5,60 @@ import TransactionData from "../Data/data.json";
 const account = TransactionData.accounts.account[0];
 
 const headerStyles = {
+  width: "100%",
   display: "flex",
   justifyContent: "space-between",
-  width: "auto",
-  marginLeft: "auto",
-  marginRight: "auto",
-  paddingLeft: 25,
-  paddingTop: 20,
-  paddingRight: 25,
-  fontFamily: "Nobel",
   fontWeight: "bold",
   color: "#f3f3f3",
-  height: 65,
   background: "#fc6f5b",
-  fontSize: 45,
-  boxShadow: "3px 3px 2px #9E9E9E"
-  //textShadow: "1.5px 1.5px 1.5px grey"
-};
-
-const buttonStyle = {
-  height: "30px",
-  width: "80px",
-  marginRight: "20px",
-  display: "table-cell",
-  background: "#f54c4c",
-  borderRadius: 10,
-  color: "white"
-};
-
-const diamond = function(val) {
-  return val + " &middot;";
+  fontSize: 30,
+  padding: "5px"
 };
 
 const linkStyle = {
-  fontFamily: "Arial",
   fontWeight: "100",
   color: "#f3f3f3",
-  fontSize: 16
+  fontSize: 16,
+  textDecoration: "none",
+  margin: "0px 10px"
+};
+
+const logoWrapper = {
+  fontFamily: "Nobel",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center"
+};
+
+const linkWrapper = {
+  display: "flex",
+  alignItems: "center"
 };
 
 const Header = () => {
   return (
     <div style={headerStyles}>
-      <div style={{ textShadow: "1.5px 1.5px 1.5px grey" }}>
-        {account.accountName} {diamond}
-        <AccountBalanceIcon fontSize="large" />
+      <div style={logoWrapper}>
+        <div style={{ marginRight: 10 }}>{account.accountName}</div>
+        <AccountBalanceIcon fontSize="medium" />
       </div>
-      <a href={"https://www.betterfin.com"} style={linkStyle}>
-        Accounts
-      </a>
-      <a href={"https://www.betterfin.com"} style={linkStyle}>
-        Lending Recommendations
-      </a>
-      <a href={"https://www.betterfin.com"} style={linkStyle}>
-        Investments
-      </a>
-      <a href={"https://www.betterfin.com"} style={linkStyle}>
-        Connect With An Advisor
-      </a>
-      <button style={buttonStyle}>Log Out</button>
+      <div style={linkWrapper}>
+        <a href={"https://www.betterfin.com"} style={linkStyle}>
+          Accounts
+        </a>
+        <a href={"https://www.betterfin.com"} style={linkStyle}>
+          Lending Recommendations
+        </a>
+        <a href={"https://www.betterfin.com"} style={linkStyle}>
+          Investments
+        </a>
+        <a href={"https://www.betterfin.com"} style={linkStyle}>
+          Connect With An Advisor
+        </a>
+        <a href={"https://www.betterfin.com"} style={linkStyle}>
+          Log Out
+        </a>
+      </div>
     </div>
   );
 };

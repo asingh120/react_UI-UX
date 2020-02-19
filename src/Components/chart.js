@@ -22,9 +22,6 @@ import {
 import TransactionData from "../Data/data.json";
 
 const useStyles = makeStyles({
-  title: {
-    color: "red"
-  },
   formControl: {
     margin: 20,
     minWidth: 120
@@ -85,7 +82,7 @@ const Chart = () => {
       return (
         <div>
           <LineChart
-            width={730}
+            width={620}
             height={250}
             data={monthFinal}
             margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
@@ -105,7 +102,7 @@ const Chart = () => {
         <div>
           <RadarChart
             outerRadius={90}
-            width={730}
+            width={620}
             height={250}
             data={weekFinal}
           >
@@ -126,7 +123,7 @@ const Chart = () => {
     } else {
       return (
         <div>
-          <BarChart width={730} height={250} data={final}>
+          <BarChart width={620} height={250} data={final}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="date" />
             <YAxis dataKey="amount" />
@@ -146,7 +143,6 @@ const Chart = () => {
 
   return (
     <div>
-      <h3 className={classes.title}>Account At A Glance</h3>
       <div>
         <FormControl className={classes.formControl}>
           <InputLabel id="demo-simple-select-label">Charts</InputLabel>
