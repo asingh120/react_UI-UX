@@ -19,8 +19,10 @@ const headerStyles = {
   height: 65,
   background: "#fc6f5b",
   fontSize: 45,
-  boxShadow: "3px 3px 2px #9E9E9E"
-  //textShadow: "1.5px 1.5px 1.5px grey"
+  boxShadow: "3px 3px 2px #9E9E9E",
+  "@media (min-width 830px)": {
+    height: 85
+  }
 };
 
 const buttonStyle = {
@@ -41,7 +43,10 @@ const linkStyle = {
   fontFamily: "Arial",
   fontWeight: "100",
   color: "#f3f3f3",
-  fontSize: 16
+  fontSize: 16,
+  "@media (max-width 990px)": {
+    display: "none"
+  }
 };
 
 const Header = () => {
