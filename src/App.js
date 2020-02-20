@@ -29,7 +29,10 @@ const useStyle = makeStyles({
 const App = () => {
   const classes = useStyle();
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{ position: "absolute", bottom: 0, width: "100%" }}
+    >
       <Header />
       <div style={{ width: "100%" }}>
         <div className={classes.root}>

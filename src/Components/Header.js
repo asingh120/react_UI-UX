@@ -41,11 +41,14 @@ const linkWrapper = {
 };
 
 const burgerLogoStyle = {
+  textAlign: "left",
   fontFamily: "Nobel",
-  color: "white",
+  color: "#f3f3f3",
   fontSize: 30,
-  fontWeight: "700",
-  background: "#fc6f5b"
+  fontWeight: "bold",
+  background: "#fc6f5b",
+  padding: "5px",
+  marginRight: "10px"
 };
 
 const useStyle = makeStyles({
@@ -78,8 +81,9 @@ const Header = () => {
   if (menu) {
     return (
       <div onClick={() => setMenu(false)}>
-        <div style={burgerLogoStyle}>{account.accountName}</div>
-
+        <div>
+          <div style={burgerLogoStyle}>{account.accountName}</div>
+        </div>
         <div>
           <div style={burgerStyle}>
             <a
