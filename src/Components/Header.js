@@ -37,7 +37,8 @@ const logoWrapper = {
 
 const linkWrapper = {
   display: "flex",
-  alignItems: "center"
+  alignItems: "center",
+  paddingRight: "20px"
 };
 
 const burgerLogoStyle = {
