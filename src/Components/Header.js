@@ -81,7 +81,7 @@ const Header = () => {
 
   if (menu) {
     return (
-      <div onClick={() => setMenu(false)}>
+      <div onClick={() => setMenu(false)} style={{ overflow: "auto" }}>
         <div style={burgerLogoStyle}>{account.accountName} &#8595;</div>
         <div>
           <div style={burgerStyle}>
