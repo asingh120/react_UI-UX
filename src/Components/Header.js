@@ -68,7 +68,7 @@ const useStyle = makeStyles({
     cursor: "pointer",
     "@media (max-width: 890px)": {
       display: "flex",
-      paddingRight: 20,
+      paddingRight: 5,
       color: "white",
       textDecoration: "none"
     }
