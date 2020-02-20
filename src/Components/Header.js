@@ -82,7 +82,7 @@ const Header = () => {
   if (menu) {
     return (
       <div onClick={() => setMenu(false)}>
-        <div style={burgerLogoStyle}>{account.accountName} &#9776;</div>
+        <div style={burgerLogoStyle}>{account.accountName} &#8595;</div>
         <div>
           <div style={burgerStyle}>
             <a
