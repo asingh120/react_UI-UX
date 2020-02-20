@@ -10,7 +10,7 @@ const headerStyles = {
   display: "flex",
   justifyContent: "space-between",
   fontWeight: "bold",
-  color: "#f3f3f3",
+  color: "white",
   background: "#fc6f5b",
   fontSize: 30,
   padding: "5px"
@@ -44,8 +44,11 @@ const burgerLogoStyle = {
   fontFamily: "Nobel",
   color: "white",
   fontSize: 30,
-  fontWeight: "700",
-  background: "#fc6f5b"
+  fontWeight: "bold",
+  background: "#fc6f5b",
+  textAlign: "left",
+  padding: "5px",
+  cursor: "pointer"
 };
 
 const useStyle = makeStyles({
@@ -78,8 +81,7 @@ const Header = () => {
   if (menu) {
     return (
       <div onClick={() => setMenu(false)}>
-        <div style={burgerLogoStyle}>{account.accountName}</div>
-
+        <div style={burgerLogoStyle}>{account.accountName} &#9776;</div>
         <div>
           <div style={burgerStyle}>
             <a
