@@ -4,28 +4,43 @@ import StickyHeadTable from "./Components/Table";
 import AccountInfo from "./Components/AccountInfo";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import { makeStyles } from "@material-ui/core";
 import "./App.css";
 
-const divStyle = {
-  display: "flex",
-  justifyContent: "space-between",
-  //flexDirection: "column",
-  "@media (max-width: 955px)": {
-    flexDirection: "column-reverse"
+const useStyle = makeStyles({
+  root: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-evenly",
+    alignItems: "center"
+  },
+  breakpoint: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    "@media (max-width: 955px)": {
+      display: "flex",
+
+      flexDirection: "column"
+    }
   }
-};
+});
 
 const App = () => {
+  const classes = useStyle();
   return (
     <div className="App">
       <Header />
-      <div>
-        <div style={divStyle}>
-          <div>
-            <Chart />
-          </div>
-          <div>
-            <AccountInfo />
+      <div style={{ width: "100%" }}>
+        <div className={classes.root}>
+          <div className={classes.breakpoint}>
+            <div>
+              <AccountInfo />
+            </div>
+
+            <div>
+              <Chart />
+            </div>
           </div>
         </div>
         <div>

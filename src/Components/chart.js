@@ -31,8 +31,20 @@ const useStyles = makeStyles({
     justifyContent: "center",
     display: "flex",
     margin: "auto"
+  },
+  breakpoint: {
+    "@media (max-width: 650px)": {
+      display: "none"
+    }
   }
 });
+
+const styles = {
+  fontFamily: "Helvetica",
+  fontSize: 14,
+  color: "#636362",
+  fontWeight: "200"
+};
 
 const balance = TransactionData.balances[0];
 const dailyLabels = balance.daily_labels;
@@ -65,13 +77,6 @@ for (let i = 0; i < weekLabels.length; i++) {
     amount: weekValues[i]
   });
 }
-
-const styles = {
-  fontFamily: "Helvetica",
-  fontSize: 14,
-  color: "#636362",
-  fontWeight: "200"
-};
 
 const Chart = () => {
   const classes = useStyles();
@@ -142,7 +147,7 @@ const Chart = () => {
   };
 
   return (
-    <div>
+    <div className={classes.breakpoint}>
       <div>
         <FormControl className={classes.formControl}>
           <InputLabel id="demo-simple-select-label">Charts</InputLabel>

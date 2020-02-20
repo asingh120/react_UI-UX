@@ -2,16 +2,16 @@ import React from "react";
 
 const footerStyles = {
   display: "flex",
+  color: "white",
   justifyContent: "space-between",
   alignItems: "center",
   width: "auto",
-  height: 30,
+  height: 40,
   marginLeft: "auto",
   marginRight: "auto",
-  paddingRight: 40,
+  padding: "10px, 5px, 5px, 5px",
   fontFamily: "Arial",
   fontWeight: "600",
-  color: "#f3f3f3",
   background: "#fc6f5b",
   fontSize: 14,
   textDecoration: "none"

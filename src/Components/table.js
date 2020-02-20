@@ -61,6 +61,24 @@ const columns = [
   }
 ];
 
+const columnsBreakpoint = [
+  { id: "date", label: "Date", minWidth: 75, align: "center" },
+  {
+    id: "description",
+    label: "Description",
+    minWidth: 170,
+    align: "center",
+    format: value => value.toLocaleString()
+  },
+  {
+    id: "amount",
+    label: "Amount",
+    minWidth: 100,
+    align: "center",
+    format: value => value.toFixed(2)
+  }
+];
+
 const formatType = type => {
   switch (type) {
     case "REFUND":
@@ -102,17 +120,31 @@ for (let i = 0; i < txs.length; i++) {
 
 const useStyles = makeStyles({
   root: {
-    width: "100%"
+    width: "99%",
+    margin: "auto",
+    "@media (max-width:955px)": {
+      display: "none"
+    }
+    // fontFamily: "Apercu",
   },
   container: {
-    width: "100%"
     //marginRight: "200"
     // maxHeight: 500
+  },
+  breakpoint: {
+    "@media (min-width: 955px)": {
+      display: "none",
+      width: "80%",
+      margin: "auto"
+    }
+    // "@media (min-width 955px)": {
+    //   display: "none"
+    // }
   }
 });
 
 const styles = {
-  fontFamily: "sans-serif",
+  fontFamily: "Helvetica",
   fontSize: 25,
   color: "#636362",
   fontWeight: "600"
@@ -167,6 +199,64 @@ const StickyHeadTable = () => {
                         key={row.id}
                       >
                         {columns.map(column => {
+                          const value = row[column.id];
+                          return (
+                            <TableCell key={column.id} align={column.align}>
+                              {column.format && typeof value === "number"
+                                ? column.format(value)
+                                : value}
+                            </TableCell>
+                          );
+                        })}
+                      </TableRow>
+                    );
+                  })}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <TablePagination
+            rowsPerPageOptions={[10, 25, 100]}
+            component="div"
+            count={rows.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onChangePage={handleChangePage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+          />
+        </Paper>
+      </Grid>
+      <Grid>
+        <Paper className={classes.breakpoint}>
+          <TableContainer className={classes.container}>
+            <Table stickyHeader aria-label="sticky table">
+              <TableHead>
+                <TableRow>
+                  {columnsBreakpoint.map(column => (
+                    <TableCell
+                      key={column.id}
+                      align={column.align}
+                      style={{
+                        minWidth: column.minWidth,
+                        background: "#f5d5d0"
+                      }}
+                    >
+                      {column.label}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {rows
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map(row => {
+                    return (
+                      <TableRow
+                        hover
+                        role="checkbox"
+                        tabIndex={-1}
+                        key={row.id}
+                      >
+                        {columnsBreakpoint.map(column => {
                           const value = row[column.id];
                           return (
                             <TableCell key={column.id} align={column.align}>
